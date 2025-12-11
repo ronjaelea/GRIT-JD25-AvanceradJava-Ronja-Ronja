@@ -5,9 +5,11 @@ public class Demo {
 
     public static void main(String[] args) {
         System.out.println("""
-                1. Insertion Sort
-                2. Merge Sort
-                3. Binary Search
+                1. Start Thread by Inheritance
+                2. Start Thread by Interface
+                3. Start Thread by Lambda
+                4. Race Condition Demo
+                5. Synchronized Demo
                 """);
         System.out.println("Demo: ");
         Scanner sc = new Scanner(System.in);
@@ -21,13 +23,19 @@ public class Demo {
 
         switch(i) {
             case 1:
-                InsertionSortDemo.Demo();
+                StartThreadByInheritanceDemo.Demo();
                 break;
             case 2:
-                MergeSortDemo.Demo();
+                StartThreadByInterfaceDemo.Demo();
                 break;
             case 3:
-                BinarySearchDemo.Demo();
+                StartThreadByLambdaDemo.Demo();
+                break;
+            case 4:
+                RaceConditionDemo.Demo();
+                break;
+            case 5:
+                SynchronizedDemo.Demo();
                 break;
             default:
                 System.out.println("Ogiltigt val");
