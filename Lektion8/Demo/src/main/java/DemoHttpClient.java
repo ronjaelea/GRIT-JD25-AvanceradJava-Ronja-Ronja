@@ -1,3 +1,5 @@
+import tools.jackson.databind.ObjectMapper;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -28,6 +30,19 @@ public class DemoHttpClient {
             // 4. Använd svaret
             System.out.println("Status Code: " + response.statusCode());
             System.out.println("Body: " + response.body());
+
+            // 5. Create Jackson Object Mapper
+            ObjectMapper mapper = new ObjectMapper();
+            ChuckNorris cn = mapper.readValue(
+                    response.body(),
+                    ChuckNorris.class
+            );
+
+            // 6. Använd vårt Chuck Norris objekt
+            System.out.printf(
+                    "Chuck Norris Joke: %s\n",
+                    cn.getValue()
+            );
 
         } catch (Exception e) {
             e.printStackTrace();
